@@ -6,10 +6,11 @@ import SingUp from './SingUp.js'
 import SingIn from './SingIn.js'
 import Board from './Board.js'
 import BoardUser from './BoardUser.js'
+import { connect } from 'redux-zero/react';
 
 const Sing = ({}) => {
   return (
-          <div className='text-center'>
+          <div className='text-center line-block'>
             <img className='logo-big' src={logo}/>
             <NavLink to="/sing-in" className='sing-in' >Sing In</NavLink>
             <NavLink to="/sing-up" className='sing-in' >Sing Up</NavLink>
@@ -51,4 +52,5 @@ const App = ({users}) => {
   );
 }
 
-export default App;
+const mapToProps = ({ users }) => ({ users });
+export default connect(mapToProps)(App);

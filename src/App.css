@@ -29,6 +29,10 @@ body {
   display: block;
 }
 
+.line-block {
+  display: block;
+}
+
 .sing-in:hover {
   background-color: white;
   color: #606b9e;
