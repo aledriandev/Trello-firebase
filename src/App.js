@@ -6,6 +6,7 @@ import SingUp from './SingUp.js'
 import SingIn from './SingIn.js'
 import Board from './Board.js'
 import BoardUser from './BoardUser.js'
+import TeamUser from './TeamUser.js'
 import { connect } from 'redux-zero/react';
 
 const Sing = ({}) => {
@@ -32,7 +33,7 @@ const App = ({users}) => {
               users.map((user,index)=>{
                 const path = '/boards-' + user.name;
                 {
-                  // user.teams[1].boards.map((board,index)=>{
+                  // user.teams.map((board,index)=>{
                   //   const pathBoard = '/boards-'+ user.name + user.board.name;
                   //   return(
                   //     <Route exact path={pathBoard} render={()=><BoardUser/>}/>
@@ -42,6 +43,16 @@ const App = ({users}) => {
                 return(
                   <Route exact path={path} render={()=><Board user={user}/>}/>
                 );
+              })
+            }
+            {
+              users.map(user=>{
+                return(
+                  user.teams.map((team,index)=>{
+                    const path = '/boards-' + user.name +'/'+ index;
+                    return <Route exact path={path} render={()=><TeamUser team={team}/>}/>
+                  })
+                )
               })
             }
             <Route render={() => <Redirect to="/" />} />
