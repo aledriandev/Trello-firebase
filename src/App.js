@@ -55,6 +55,20 @@ const App = ({users}) => {
                 )
               })
             }
+            {
+              users.map(user=>{
+                return(
+                  user.teams.map((team,index)=>{
+                    return(
+                      team.boards.map((board,idx)=>{
+                        const path = '/boards-' + user.name +'/'+ index+'/'+idx;
+                        return <Route exact path={path} render={()=><BoardUser board={board}/>}/>
+                      })
+                    )
+                  })
+                )
+              })
+            }
             <Route render={() => <Redirect to="/" />} />
           </Switch>
         </div>
