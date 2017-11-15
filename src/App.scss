@@ -1,0 +1,76 @@
+body{
+    background-color: #606b9e;
+    height: 100vh;
+  }
+  
+  .logo-big{
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .form-horizontal .form-group {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  
+  .input-data{
+    padding: 4%;
+    font-size: 1.5em;
+  }
+  
+  .sing-in{
+    width: 100%;
+    border: white 3px solid;
+    background: transparent;
+    border-radius: 0;
+    padding: 1%;
+    font-size: 1.5em;
+    color: white;
+    display: block;
+  }
+  
+  .sing-in:hover{
+    background-color: white;
+    color: #606b9e;
+    border: white 3px solid;
+  }
+  
+  .text-navlink{
+    font-size: 1.3em;
+    color: white;
+    opacity: 0.5;
+  }
+  
+  .text-navlink:hover{
+    font-size: 1.3em;
+    color: white;
+    opacity: 1;
+  }
+  
+  header{
+    height: 50px;
+    background-color: #414c7e;
+    padding: 3px;
+  }
+  
+  .logo-small{
+    height: 44px;
+  }
+  
+  .txt-white{
+    color: white;
+  }
+  
+  .team{
+    overflow: auto;
+  }
+  
+  .board{
+    background-color: #8e98c6;
+    padding: 20px;
+    text-justify: center;
+    width: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    float: left;
+  }
