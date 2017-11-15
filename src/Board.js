@@ -7,8 +7,8 @@ const Board = ({user}) => {
     <div>
       <header className='text-center'>
         <img className='logo-small' src={logo}/>
+        <h1>{user.name}</h1>
       </header>
-      <h1>{user.name}</h1>
       <div className='boards'>
         {
           user.teams.map((team,index) => <div key={index} className='team'>

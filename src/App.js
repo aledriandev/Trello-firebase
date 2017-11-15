@@ -15,7 +15,7 @@ const Sing = ({}) => {
             <img className='logo-big' src={logo}/>
             <NavLink to="/sing-in" className='sing-in' >Sing In</NavLink>
             <NavLink to="/sing-up" className='sing-in' >Sing Up</NavLink>
-            <NavLink to="/boards-Alejandra" className='sing-in' >Board</NavLink>
+            <NavLink to="/boards-Alejandra/0/0" className='sing-in' >Board</NavLink>
           </div>
   );
 }
@@ -50,7 +50,7 @@ const App = ({users}) => {
                 return(
                   user.teams.map((team,index)=>{
                     const path = '/boards-' + user.name +'/'+ index;
-                    return <Route exact path={path} render={()=><TeamUser team={team}/>}/>
+                    return <Route exact path={path} render={()=><TeamUser team={team} user={user}/>}/>
                   })
                 )
               })
@@ -62,7 +62,7 @@ const App = ({users}) => {
                     return(
                       team.boards.map((board,idx)=>{
                         const path = '/boards-' + user.name +'/'+ index+'/'+idx;
-                        return <Route exact path={path} render={()=><BoardUser board={board}/>}/>
+                        return <Route exact path={path} render={()=><BoardUser board={board} user={user} team={team}/>}/>
                       })
                     )
                   })

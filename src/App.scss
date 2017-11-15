@@ -1,24 +1,24 @@
-body{
+body {
     background-color: #606b9e;
     height: 100vh;
-  }
-  
-  .logo-big{
+}
+
+.logo-big {
     width: 300px;
     margin-bottom: 20px;
-  }
-  
-  .form-horizontal .form-group {
+}
+
+.form-horizontal .form-group {
     margin-right: 0px;
     margin-left: 0px;
-  }
-  
-  .input-data{
+}
+
+.input-data {
     padding: 4%;
     font-size: 1.5em;
-  }
-  
-  .sing-in{
+}
+
+.sing-in {
     width: 100%;
     border: white 3px solid;
     background: transparent;
@@ -27,54 +27,75 @@ body{
     font-size: 1.5em;
     color: white;
     display: block;
-  }
+}
 
-  .line-block{
+.line-block {
     display: block;
-  }
-  
-  .sing-in:hover{
+}
+
+.sing-in:hover {
     background-color: white;
     color: #606b9e;
     border: white 3px solid;
-  }
-  
-  .text-navlink{
+}
+
+.text-navlink {
     font-size: 1.3em;
     color: white;
     opacity: 0.5;
-  }
-  
-  .text-navlink:hover{
+}
+
+.text-navlink:hover {
     font-size: 1.3em;
     color: white;
     opacity: 1;
-  }
-  
-  header{
+}
+
+header {
     height: 50px;
     background-color: #414c7e;
     padding: 3px;
-  }
-  
-  .logo-small{
+}
+
+.logo-small {
     height: 44px;
-  }
-  
-  .txt-white{
+}
+
+.txt-white {
     color: white;
-  }
-  
-  .team{
+}
+
+.team {
     overflow: auto;
-  }
-  
-  .board{
+}
+
+.board {
     background-color: #8e98c6;
-    padding: 20px;
+    padding: 5px;
     text-justify: center;
     width: 150px;
     margin: 10px;
     border-radius: 10px;
     float: left;
-  }
+}
+
+button {
+    border: none;
+}
+
+.card {
+  background-color: white;
+  padding: 2px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.card-add {
+  background-color: rgb(80, 29, 175);
+  padding: 2px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+}

@@ -71,12 +71,33 @@ header {
 
 .board {
   background-color: #8e98c6;
-  padding: 20px;
+  padding: 5px;
   text-justify: center;
   width: 150px;
   margin: 10px;
   border-radius: 10px;
   float: left;
+}
+
+button {
+  border: none;
+}
+
+.card {
+  background-color: white;
+  padding: 2px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.card-add {
+  background-color: #501daf;
+  padding: 2px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
 }
  
 
