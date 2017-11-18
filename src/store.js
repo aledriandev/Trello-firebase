@@ -22,7 +22,7 @@ const usersBase = [
         ]
       }
     ]
-  }
+  },
 ]
 
 const users = [
@@ -206,6 +206,7 @@ const users = [
 
 const initialState = {
   users: users,
+  showList: false,
 }
 
 const store = createStore(initialState);

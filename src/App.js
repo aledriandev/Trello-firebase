@@ -15,7 +15,7 @@ const Sing = ({}) => {
             <img className='logo-big' src={logo}/>
             <NavLink to="/sing-in" className='sing-in' >Sing In</NavLink>
             <NavLink to="/sing-up" className='sing-in' >Sing Up</NavLink>
-            <NavLink to="/boards-Alejandra/0/0" className='sing-in' >Board</NavLink>
+            <NavLink to="/0" className='sing-in' >Board</NavLink>
           </div>
   );
 }
@@ -30,39 +30,31 @@ const App = ({users}) => {
             <Route exact path="/sing-up" render={() =><SingUp users={users}/>}/>
             <Route exact path="/sing-in" render={() =><SingIn users={users}/>}/>
             {
-              users.map((user,index)=>{
-                const path = '/boards-' + user.name;
-                {
-                  // user.teams.map((board,index)=>{
-                  //   const pathBoard = '/boards-'+ user.name + user.board.name;
-                  //   return(
-                  //     <Route exact path={pathBoard} render={()=><BoardUser/>}/>
-                  //   )
-                  // })
-                }
+              users.map((user,iUser)=>{
+                const path = '/' + iUser;
                 return(
-                  <Route exact path={path} render={()=><Board user={user}/>}/>
+                  <Route exact path={path} render={()=><Board user={user} iUser={iUser}/>}/>
                 );
               })
             }
             {
-              users.map(user=>{
-                return(
-                  user.teams.map((team,index)=>{
-                    const path = '/boards-' + user.name +'/'+ index;
-                    return <Route exact path={path} render={()=><TeamUser team={team} user={user}/>}/>
-                  })
-                )
-              })
+              // users.map((user,iUser)=>{
+              //   return(
+              //     user.teams.map((team,iTeam)=>{
+              //       const path = iUser +'/'+ iTeam;
+              //       return <Route exact path={path} render={()=><TeamUser team={team} iTeam={iTeam} user={user} iUser={iUser}/>}/>
+              //     })
+              //   )
+              // })
             }
             {
-              users.map(user=>{
+              users.map((user, iUser)=>{
                 return(
-                  user.teams.map((team,index)=>{
+                  user.teams.map((team,iTeam)=>{
                     return(
-                      team.boards.map((board,idx)=>{
-                        const path = '/boards-' + user.name +'/'+ index+'/'+idx;
-                        return <Route exact path={path} render={()=><BoardUser board={board} user={user} team={team}/>}/>
+                      team.boards.map((board,iBoard)=>{
+                        const path = '/' +iUser +'/'+ iTeam+'/'+ iBoard;
+                        return <Route exact path={path} render={()=><BoardUser board={board} iBoard={iBoard} team={team} iTeam={iTeam} user={user} iUser={iUser}/>}/>
                       })
                     )
                   })

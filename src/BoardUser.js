@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './whale.png';
 import './App.css';
+import {addCard} from './actions.js'
 
 const BoardUser = ({user, team, board}) => {
   return (
@@ -20,7 +21,13 @@ const BoardUser = ({user, team, board}) => {
                 <p>{card}</p>
               </div>)
             }
-            <button className='card-add'><h4>Add Card...</h4></button>
+            <form onSubmit = {(e)=>{
+              e.preventDefault();
+              addCard(this.cardInputRef.value);
+            }}>
+              <input placeholder='Add Card...' type="text" ref = {e => this.cardInputRef = e}/>
+              <button className='card-add'><h4>Add</h4></button>
+            </form>
           </div>)
         }
         <button className='board'><h4>Add List...</h4></button>
