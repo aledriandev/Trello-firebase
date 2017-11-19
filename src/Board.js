@@ -9,6 +9,7 @@ const Board = ({user,iUser}) => {
       <header className='text-center'>
         <img className='logo-small' src={logo}/>
         <h1>{user.name}</h1>
+        <p>HOLII</p>
       </header>
       <div className='boards'>
         {
