@@ -207,6 +207,7 @@ const users = [
 const initialState = {
   users: users,
   showList: false,
+  list: users[0].teams[0].lists,
 }
 
 const store = createStore(initialState);

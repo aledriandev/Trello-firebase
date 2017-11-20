@@ -5,13 +5,14 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "redux-zero/react";
 import store from "./store";
-// import {readBoard} from './actions'
-
+import {readBoard} from './actions'
+readBoard();
 const Index = () => (
 	<Provider store={store}>
 		<App />
 	</Provider>
 );
+
 
 
 ReactDOM.render(<Index />, document.getElementById('root'));
