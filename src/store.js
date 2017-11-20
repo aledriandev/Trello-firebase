@@ -205,6 +205,7 @@ const users = [
 ]
 
 const initialState = {
+  user: '',
   users: users,
   showList: false,
   list: users[0].teams[0].lists,
