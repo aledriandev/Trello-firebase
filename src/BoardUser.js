@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './whale.png';
 import './App.css';
 import { addCard , addList} from './actions.js'
+import Form from './Form.js'
 
 const BoardUser = ({ user, team, board }) => {
   return (
@@ -21,22 +22,10 @@ const BoardUser = ({ user, team, board }) => {
                 <p>{card}</p>
               </div>)
             }
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              addCard(this.cardInputRef.value);
-            }}>
-              <input placeholder='Add Card...' type="text" ref={e => this.cardInputRef = e} />
-              <button className='card-add'><h4>Add</h4></button>
-            </form>
+            <Form add={addCard} placeholder='Add Card...'/>
           </div>)
         }
-        <form onSubmit={(e) => {
-          e.preventDefault();
-          addList(this.listInputRef.value);
-        }}>
-          <input placeholder='Add List...' type="text" ref={e => this.listInputRef = e} />
-          <button className='list-add'><h4>Add</h4></button>
-        </form>
+        <Form add={addList} placeholder='Add List...'/>
       </div>
     </div>
   );

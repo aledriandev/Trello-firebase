@@ -6,13 +6,13 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "redux-zero/react";
 import store from "./store";
 import {readBoard} from './actions'
-readBoard();
+
 const Index = () => (
 	<Provider store={store}>
 		<App />
 	</Provider>
 );
-
+readBoard();
 
 
 ReactDOM.render(<Index />, document.getElementById('root'));

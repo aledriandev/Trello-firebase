@@ -29,12 +29,15 @@ export function readBoard() {
 
 export function addCard(text) {
     let cards = [...store.getState().users[0].teams[0].boards[0].lists[0].cards];
-    cards.push(text);
-    // firebase.database().ref('lists').set(text);
+    console.log(text)
+    firebase.database().ref('users/0/teams/0/boards/0/lists/0/cards/'+cards.length).set(text);
 }
 
 export function addList(text) {
-    let lists = [...store.getState().users[0].teams[0].boards[0]];
-    lists.push(text);
-    // firebase.database().ref('lists').set(text);
+    let lists = [...store.getState().users[0].teams[0].boards[0].lists];
+    const newList = {
+        name: text,
+        cards: ['esta es', text]
+    }
+    firebase.database().ref('users/0/teams/0/boards/0/lists/'+lists.length).set(newList);
 }
