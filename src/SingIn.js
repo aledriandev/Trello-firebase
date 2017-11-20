@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import logo from './whale.png';
 import './App.css';
 import { Form, FormGroup, FormControl, Col, Row, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import { singIn } from './actions.js'
+import { NavLink, Redirect } from 'react-router-dom';
+import { signIn } from './actions.js'
 
-const SingIn = ({ }) => {
+const SingIn = ({ successLogin }) => {
   return (
     <div className='text-center'>
       {
@@ -20,13 +20,13 @@ const SingIn = ({ }) => {
       }>
         <FormGroup controlId="formHorizontalEmail">
           <Col smOffset={4} sm={4} mdOffset={3} md={6} xsOffset={2} xs={8}>
-            <FormControl className='input-data' type="email" placeholder="Email" />
+            <FormControl className='input-data' type="email" placeholder="Email" inputRef={e=>this.emailInputRef=e}/>
           </Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalPassword">
           <Col smOffset={4} sm={4} mdOffset={3} md={6} xsOffset={2} xs={8}>
-            <FormControl className='input-data' type="password" placeholder="Password" />
+            <FormControl className='input-data' type="password" placeholder="Password" inputRef={e=>this.passwordInputRef=e}/>
           </Col>
         </FormGroup>
 

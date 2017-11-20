@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import logo from './whale.png';
 import './App.css';
 import {Form, FormGroup, FormControl, Col, Row, Button} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import {signUp} from './actions.js'
 
-const SingUp = ({}) => {
+const SingUp = ({ successLogin }) => {
   return (
     <div className='text-center'>
+    {successLogin  && <Redirect to = "/home" />}
       <img className='logo-big' src={logo}/>
       <Form horizontal onSubmit =  {
                e => {
                   e.preventDefault();
                   signUp(this.first.value, this.last.value, this.email.value, this.pass.value, this.confirm.value);
                }
+
             }>
         <FormGroup controlId="formHorizontalFirstName">
           <Col smOffset={4} sm={4} mdOffset={3} md={6} xsOffset={2} xs={8}>

@@ -4,19 +4,20 @@ import './App.css';
 import { addCard , addList} from './actions.js'
 import Form from './Form.js'
 
-const BoardUser = ({ user, iUser, team, iTeam, board, iBoard }) => {
+const BoardUser = ({ userActual, team, iTeam, board, iBoard }) => {
+  console.log('boarduser', userActual)
   return (
     <div>
-      <header className='text-center'>
+      {userActual && <header className='text-center'>
         <img className='logo-small' src={logo} />
+        <h1>{userActual.name}</h1>
       </header>
-      <h1>{user.name}</h1>
-      <div className='boards'>
+      }{ userActual && <div className='boards'>
         <h3 className='txt-white'>{team.name}</h3>
         <h4 className='txt-white'>{board.name}</h4>
-        {
+        { userActual &&
           board.lists.map((list, iList) => <div key={iList} className='board'>
-            <h4>{list.name}</h4>
+            {list && <h4>{list.name}</h4>}
             {
               list.cards.map((card, iCard) => <div key={iCard} className='card'>
                 <p>{card}</p>
@@ -26,7 +27,7 @@ const BoardUser = ({ user, iUser, team, iTeam, board, iBoard }) => {
           </div>)
         }
         <Form add={addList} placeholder='Add List...'/>
-      </div>
+      </div>}
     </div>
   );
 }
