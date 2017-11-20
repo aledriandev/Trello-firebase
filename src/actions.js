@@ -136,5 +136,6 @@ export function addBoard(text, userActual, iTeam) {
         }]
     }
     database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/' + boards.length).set(newBoard);
+    database.ref('userActual/teams/'+iTeam+'/boards/' + boards.length).set(newBoard);
 }
 
