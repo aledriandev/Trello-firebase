@@ -20,15 +20,16 @@ const Sing = ({}) => {
   );
 }
 
-const App = ({users}) => {
+const App = ({ users, userActual, sussessLogin }) => {
   return (
     <div className='body'>
       <BrowserRouter>
         <div>
           <Switch>
             <Route exact path='/' component={Sing}/>
-            <Route exact path="/sing-up" render={() =><SingUp users={users}/>}/>
-            <Route exact path="/sing-in" render={() =><SingIn users={users}/>}/>
+            <Route exact path="/sing-in" render={() =><SingIn sussessLogin={sussessLogin}/>}/>
+            <Route exact path="/sing-up" render={() =><SingUp sussessLogin={sussessLogin}/>}/>
+            <Route exact path="/home" render={() =><User sussessLogin={sussessLogin}/>}/>
             {
               users.map((user,iUser)=>{
                 const path = '/' + iUser;
@@ -69,5 +70,5 @@ const App = ({users}) => {
   );
 }
 
-const mapToProps = ({ users }) => ({ users });
+const mapToProps = ({ users, userActual, sussessLogin }) => ({ users, userActual, sussessLogin });
 export default connect(mapToProps)(App);
