@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const Form = ({ add, placeholder, userActual, iTeam, iBoard, iList}) => {
+class  Form   extends Component {
+    render () { 
+    const { add, placeholder, userActual, iTeam, iBoard, iList} = this.props
     return (
         <div>
             <form onSubmit={(e) => {
@@ -15,5 +17,6 @@ const Form = ({ add, placeholder, userActual, iTeam, iBoard, iList}) => {
         </div>
     );
   }
+}
   
 export default Form;
