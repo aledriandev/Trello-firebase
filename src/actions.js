@@ -114,13 +114,14 @@ export function addCard(text) {
     database.ref('users/0/teams/0/boards/0/lists/0/cards/' + cards.length).set(text);
 }
 
-export function addList(text) {
-    const lists = [...store.getState().users[0].teams[0].boards[0].lists];
+export function addList(text, userActual, iTeam, iBoard) {
+    const lists = [...store.getState().users[userActual.id].teams[iTeam].boards[iBoard].lists];
     let newList = {
         name: text,
         cards: ['esta es', text]
     }
-    database.ref('users/0/teams/0/boards/0/lists/' + lists.length).set(newList);
+    database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + lists.length).set(newList);
+    database.ref('userActual/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + lists.length).set(newList);
 }
 
 export function addBoard(text, userActual, iTeam) {

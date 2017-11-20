@@ -26,7 +26,7 @@ const BoardUser = ({ userActual, team, iTeam, board, iBoard }) => {
             <Form add={addCard} placeholder='Add Card...'/>
           </div>)
         }
-        <Form add={addList} placeholder='Add List...'/>
+        <Form add={addList} userActual={userActual} iTeam={iTeam} iBoard={iBoard} placeholder='Add List...'/>
       </div>}
     </div>
   );
