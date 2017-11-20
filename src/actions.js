@@ -49,17 +49,33 @@ export function signUp(first, last, email, pass, confirm) {
 }
 
 export function signIn(user, pass) {
+    const users = [...store.getState().users];
     auth.signInWithEmailAndPassword(user, pass).then(userObj => {
-        const users = [...store.getState().users];
-        database.ref('users/' + userObj.id).once('value').then(res => {
-            const newUser = res.val();
+        console.log('userObj-email', userObj.email)
 
-            console.log('newUser', newUser);
-            store.setState({
-                userActual: users[newUser.id]
-            })
-            console.log("use actuar", store.getState().userActual)
-        })
+        // const myUser = users.filter(user=>{
+        //     console.log(user.email);
+        //     user.email == userObj.email
+        // })
+
+        for ( user of users ) {
+            if(user.email == userObj.email){
+                store.setState({
+                    userActual: user,
+                })
+                database.ref('userActual').set(user);
+            }
+        }
+        console.log('my user', store.getState().userActual);
+        // database.ref('users/' + myUser.id).once('value').then(res => {
+        //     const newUser = res.val();
+
+        //     console.log('newUser', newUser);
+        //     store.setState({
+        //         userActual: newUser
+        //     })
+        //     console.log("use actuar", store.getState().userActual)
+        // })
     })
 }
 export function signOut () {
@@ -109,9 +125,11 @@ export function readBoard() {
 
 }
 
-export function addCard(text) {
-    const cards = [...store.getState().users[0].teams[0].boards[0].lists[0].cards];
+export function addCard(text, userActual, iTeam, iBoard, iList) {
+    const cards = [...store.getState().users[userActual.id].teams[iTeam].boards[iBoard].lists[iList].cards];
     database.ref('users/0/teams/0/boards/0/lists/0/cards/' + cards.length).set(text);
+    database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);
+    database.ref('userActual/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);
 }
 
 export function addList(text, userActual, iTeam, iBoard) {
