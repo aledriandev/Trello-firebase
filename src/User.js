@@ -22,7 +22,7 @@ const User = ({ userActual, successLogin }) => {
                 <NavLink to={'/home/' + iTeam + '/' + iBoard}><h4>{board.name}</h4></NavLink>
               </div>)
             }
-            <Form add={addBoard} placeholder='Add Board...' />
+            <Form add={addBoard} userActual={userActual} iTeam={iTeam} placeholder='Add Board...' />
           </div>)
         }
       </div>

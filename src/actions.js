@@ -123,8 +123,8 @@ export function addList(text) {
     database.ref('users/0/teams/0/boards/0/lists/' + lists.length).set(newList);
 }
 
-export function addBoard(text) {
-    const boards = [...store.getState().users[0].teams[0].boards];
+export function addBoard(text, userActual, iTeam) {
+    const boards = [...store.getState().users[userActual.id].teams[iTeam].boards];
     let newBoard = {
         name: text,
         lists: [{
@@ -135,6 +135,6 @@ export function addBoard(text) {
             card: ['card', 'de listy']
         }]
     }
-    database.ref('users/0/teams/0/boards/' + boards.length).set(newBoard);
+    database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/' + boards.length).set(newBoard);
 }
 
