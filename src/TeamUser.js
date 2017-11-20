@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
 import logo from './whale.png';
 import './App.css';
+import { NavLink } from 'react-router-dom';
+import { addBoard } from './actions.js';
+import Form from './Form.js';
 
-const TeamUser = ({team}) => {
+const TeamUser = ({ team, iTeam, user, iUser }) => {
   return (
     <div>
-      {/* <header className='text-center'>
-        <img className='logo-small' src={logo}/>
+      <header className='text-center'>
+        <img className='logo-small' src={logo} />
+        <h1>{user.name}</h1>
       </header>
-      <h1>{user.name}</h1>
-      <div className='boards'>
-        {
-          user.teams.map((team,index) => <div key={index} className='team'>
-            <h3 className='txt-white'>{team.name}</h3>
-            {
-              team.boards.map((board,index)=><div key={index} className='board'>
-                <h4>{board.name}</h4>
-              </div>)
-            }
-          </div>)
-        }
-      </div> */}
-      HOLIIIII
+      <h3 className='txt-white'>{team.name}</h3>
+      {
+        team.boards.map((board, iBoard) => <div key={iBoard} className='board'>
+          <NavLink to={'/' + iUser + '/' + iTeam + '/' + iBoard}><h4>{board.name}</h4></NavLink>
+        </div>)
+      }
+      <Form add={addBoard} placeholder='Add Board...' />
     </div>
   );
 }

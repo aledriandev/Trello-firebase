@@ -4,7 +4,7 @@ import './App.css';
 import {BrowserRouter, Switch, Route, Redirect,NavLink} from 'react-router-dom'
 import SingUp from './SingUp.js'
 import SingIn from './SingIn.js'
-import Board from './Board.js'
+import User from './User.js'
 import BoardUser from './BoardUser.js'
 import TeamUser from './TeamUser.js'
 import { connect } from 'redux-zero/react';
@@ -33,19 +33,19 @@ const App = ({users}) => {
               users.map((user,iUser)=>{
                 const path = '/' + iUser;
                 return(
-                  <Route exact path={path} render={()=><Board user={user} iUser={iUser}/>}/>
+                  <Route exact path={path} render={()=><User user={user} iUser={iUser}/>}/>
                 );
               })
             }
             {
-              // users.map((user,iUser)=>{
-              //   return(
-              //     user.teams.map((team,iTeam)=>{
-              //       const path = iUser +'/'+ iTeam;
-              //       return <Route exact path={path} render={()=><TeamUser team={team} iTeam={iTeam} user={user} iUser={iUser}/>}/>
-              //     })
-              //   )
-              // })
+              users.map((user,iUser)=>{
+                return(
+                  user.teams.map((team,iTeam)=>{
+                    const path = '/' + iUser +'/'+ iTeam;
+                    return <Route exact path={path} render={()=><TeamUser team={team} iTeam={iTeam} user={user} iUser={iUser}/>}/>
+                  })
+                )
+              })
             }
             {
               users.map((user, iUser)=>{
