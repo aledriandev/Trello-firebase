@@ -130,10 +130,10 @@ export function addBoard(text, userActual, iTeam) {
         name: text,
         lists: [{
             name: 'listx',
-            card: ['card', 'de listx']
+            cards: ['card', 'de listx']
         }, {
             name: 'listy',
-            card: ['card', 'de listy']
+            cards: ['card', 'de listy']
         }]
     }
     database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/' + boards.length).set(newBoard);
