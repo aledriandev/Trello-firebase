@@ -24,10 +24,10 @@ class  BoardUser extends React.Component {
                   <p>{card}</p>
                 </div>)
               }
-              <Form add={addCard} userActual={userActual} iTeam={iTeam} iBoard={iBoard} iList={iList} placeholder='Add Card...' />
+              <Form classN='form-cards' add={addCard} userActual={userActual} iTeam={iTeam} iBoard={iBoard} iList={iList} placeholder='Add Card...' />
             </div>)
             }
-            <Form add={addList} userActual={userActual} iTeam={iTeam} iBoard={iBoard} placeholder='Add List...' />
+            <Form classN='form-lists' add={addList} userActual={userActual} iTeam={iTeam} iBoard={iBoard} placeholder='Add List...' />
           </div>}
         </div>
       );

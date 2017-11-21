@@ -57,8 +57,6 @@ auth.onAuthStateChanged(user => {
         store.setState({
             successLogin: true,
         })
-        console.log('successLogin', store.getState().successLogin);
-
     }
 });
 
@@ -94,7 +92,7 @@ export function addCard(text, userActual, iTeam, iBoard, iList) {
         cards = [...store.getState().users[userActual.id].teams[iTeam].boards[iBoard].lists[iList].cards];
     else 
         cards = [];
-        
+
     database.ref('users/0/teams/0/boards/0/lists/0/cards/' + cards.length).set(text);
     database.ref('users/' + userActual.id + '/teams/' + iTeam + '/boards/' + iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);
     database.ref('userActual/teams/' + iTeam + '/boards/' + iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);

@@ -129,6 +129,10 @@ button {
   top: 1%;
   display: inline;
 }
+
+.input-add {
+  width: 100%;
+}
  
 
  /*# sourceMappingURL= App.css.map */
