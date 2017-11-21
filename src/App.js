@@ -10,9 +10,10 @@ import TeamUser from './TeamUser.js'
 import { connect } from 'redux-zero/react';
 
 
-const Sing = ({ }) => {
+const Sign = ({ successLogin }) => {
   return (
     <div className='text-center line-block'>
+      {successLogin && <Redirect to='/home'/>}
       <img className='logo-big' src={logo} />
       <NavLink to="/sing-in" className='sing-in' >Sing In</NavLink>
       <NavLink to="/sing-up" className='sing-in' >Sing Up</NavLink>
@@ -26,7 +27,7 @@ const App = ({ users, userActual, successLogin }) => {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route exact path='/' component={Sing} />
+            <Route exact path='/' render={() => <Sign successLogin={successLogin} />}  />
             <Route exact path="/sing-in" render={() => <SingIn successLogin={successLogin} />} />
             <Route exact path="/sing-up" render={() => <SingUp successLogin={successLogin} />} />
             <Route exact path="/home" render={() => <User userActual={userActual} successLogin={successLogin} />} />
