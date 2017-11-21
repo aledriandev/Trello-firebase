@@ -105,7 +105,13 @@ export function addList(text, userActual, iTeam, iBoard) {
 }
 
 export function addBoard(text, userActual, iTeam) {
-    const boards = [...store.getState().users[userActual.id].teams[iTeam].boards];
+    let boards;
+    console.log('holi',store.getState().users[userActual.id].teams[iTeam].boards)
+    if(store.getState().users[userActual.id].teams[iTeam].boards != undefined){
+        boards = [...store.getState().users[userActual.id].teams[iTeam].boards];
+    }else{
+        boards = [];
+    }
     let newBoard = {
         name: text,
         lists: []
