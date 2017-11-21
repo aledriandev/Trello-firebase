@@ -33,12 +33,3 @@ class  BoardUser extends React.Component {
   }
 }
 export default BoardUser;
-
-/* <form onSubmit={(e) => {
-            e.preventDefault();
-            addCard(this.inputRefCard.value, userActual, iTeam, iBoard, iList);
-            console.log('input', this.inputRefCard.value)
-          }}>
-            <input placeholder='add card' type="text" ref={e => this.inputRefCard = e} />
-            <button className='list-add'><h4>Add</h4></button>
-          </form> */
