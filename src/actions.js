@@ -10,41 +10,18 @@ export function signUp(first, last, email, pass, confirm) {
             email: email,
             name: first,
             last: last,
-            teams: [{
-                name: 'xx',
-                boards: [{
-                    name: 'text',
-                    lists: [{
-                        name: 'listx',
-                        cards: ['card', 'de listx']
-                    }, {
-                        name: 'listy',
-                        cards: ['card', 'de listy']
-                    }]
+            teams: [
+                {
+                    name: 'Personal Board',
+                    boards: []
+                },
+                {
+                    name: 'Other Boards',
+                    boards: []
                 }]
-            }]
         }
         database.ref('users/' + users.length).set(newUser);
         database.ref('userActual').set(newUser);
-
-        // database.ref('users/' + users.length).once('value').then(res => {
-        //     const userNew = res.val();
-
-        //     // console.log('full info ', userNew);
-        //     // store.setState({
-        //     //     userActual: userNew
-        //     // })
-            
-        // })
-        // database.ref('userActual').once('value').then(res => {
-        //     const userNew = res.val();
-
-        //     console.log('full info ', userNew);
-        //     store.setState({
-        //         userActual: users[newUser.id]
-        //     })
-            
-        // })
     })
 }
 
@@ -53,13 +30,8 @@ export function signIn(user, pass) {
     auth.signInWithEmailAndPassword(user, pass).then(userObj => {
         console.log('userObj-email', userObj.email)
 
-        // const myUser = users.filter(user=>{
-        //     console.log(user.email);
-        //     user.email == userObj.email
-        // })
-
-        for ( user of users ) {
-            if(user.email == userObj.email){
+        for (user of users) {
+            if (user.email == userObj.email) {
                 store.setState({
                     userActual: user,
                 })
@@ -67,25 +39,16 @@ export function signIn(user, pass) {
             }
         }
         console.log('my user', store.getState().userActual);
-        // database.ref('users/' + myUser.id).once('value').then(res => {
-        //     const newUser = res.val();
-
-        //     console.log('newUser', newUser);
-        //     store.setState({
-        //         userActual: newUser
-        //     })
-        //     console.log("use actuar", store.getState().userActual)
-        // })
     })
 }
-export function signOut () {
+export function signOut() {
     auth.signOut();
-    store.setState ( {
-       successLogin : false,
-       userActual: ''
+    store.setState({
+        successLogin: false,
+        userActual: ''
     })
     console.log('successLogin', store.getState().successLogin);
- }
+}
 auth.onAuthStateChanged(user => {
     if (user) {
         console.log('user', user);
@@ -93,10 +56,9 @@ auth.onAuthStateChanged(user => {
         console.log(usersRef)
         store.setState({
             successLogin: true,
-            // userActual: user
         })
         console.log('successLogin', store.getState().successLogin);
-        
+
     }
 });
 
@@ -108,7 +70,7 @@ export function readBoard() {
         store.setState({
             userActual: userActual
         })
-        console.log('user-Actual', store.getState().userActual); 
+        console.log('user-Actual', store.getState().userActual);
     });
 
     database.ref('users').on('value', res => {
@@ -128,33 +90,27 @@ export function readBoard() {
 export function addCard(text, userActual, iTeam, iBoard, iList) {
     const cards = [...store.getState().users[userActual.id].teams[iTeam].boards[iBoard].lists[iList].cards];
     database.ref('users/0/teams/0/boards/0/lists/0/cards/' + cards.length).set(text);
-    database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);
-    database.ref('userActual/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);
+    database.ref('users/' + userActual.id + '/teams/' + iTeam + '/boards/' + iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);
+    database.ref('userActual/teams/' + iTeam + '/boards/' + iBoard + '/lists/' + iList + '/cards/' + cards.length).set(text);
 }
 
 export function addList(text, userActual, iTeam, iBoard) {
     const lists = [...store.getState().users[userActual.id].teams[iTeam].boards[iBoard].lists];
     let newList = {
         name: text,
-        cards: ['esta es', text]
+        cards: []
     }
-    database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + lists.length).set(newList);
-    database.ref('userActual/teams/'+iTeam+'/boards/'+ iBoard + '/lists/' + lists.length).set(newList);
+    database.ref('users/' + userActual.id + '/teams/' + iTeam + '/boards/' + iBoard + '/lists/' + lists.length).set(newList);
+    database.ref('userActual/teams/' + iTeam + '/boards/' + iBoard + '/lists/' + lists.length).set(newList);
 }
 
 export function addBoard(text, userActual, iTeam) {
     const boards = [...store.getState().users[userActual.id].teams[iTeam].boards];
     let newBoard = {
         name: text,
-        lists: [{
-            name: 'listx',
-            cards: ['card', 'de listx']
-        }, {
-            name: 'listy',
-            cards: ['card', 'de listy']
-        }]
+        lists: []
     }
-    database.ref('users/'+userActual.id+'/teams/'+iTeam+'/boards/' + boards.length).set(newBoard);
-    database.ref('userActual/teams/'+iTeam+'/boards/' + boards.length).set(newBoard);
+    database.ref('users/' + userActual.id + '/teams/' + iTeam + '/boards/' + boards.length).set(newBoard);
+    database.ref('userActual/teams/' + iTeam + '/boards/' + boards.length).set(newBoard);
 }
 
