@@ -28,7 +28,6 @@ export function signUp(first, last, email, pass, confirm) {
 export function signIn(user, pass) {
     const users = [...store.getState().users];
     auth.signInWithEmailAndPassword(user, pass).then(userObj => {
-        console.log('userObj-email', userObj.email)
 
         for (user of users) {
             if (user.email == userObj.email) {
@@ -39,7 +38,7 @@ export function signIn(user, pass) {
             }
         }
         console.log('my user', store.getState().userActual);
-    })
+    }).catch((error)=>alert('Usuario no encontrado'))
 }
 export function signOut() {
     auth.signOut();
@@ -51,9 +50,7 @@ export function signOut() {
 }
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log('user', user);
         let usersRef = database.ref('/userActual');
-        console.log(usersRef)
         store.setState({
             successLogin: true,
         })
@@ -64,11 +61,10 @@ export function readBoard() {
 
     database.ref('userActual').on('value', res => {
         let userActual = res.val()
-        console.log('nuevo user', userActual);
         store.setState({
             userActual: userActual
         })
-        console.log('user-Actual', store.getState().userActual);
+        console.log('nuevo user', userActual);
     });
 
     database.ref('users').on('value', res => {
@@ -77,7 +73,6 @@ export function readBoard() {
             const user = snap.val();
             users.push(user);
         })
-        console.log('nuevo users', users);
         store.setState({
             users: users
         })
