@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+
 //VARIABLES
 $white: white;
 $darkBlue: #606b9e;
 $darkBlue2: #414c7e;
 $ligthBlue: #8e98c6;
 $cards: rgb(80, 29, 175);
+$skyblue: #76aef7;
 
 *{
     margin: 0 auto;
@@ -13,6 +17,7 @@ $cards: rgb(80, 29, 175);
 body {
     background-color: $darkBlue;
     height: 100vh;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .logo-big {
@@ -85,7 +90,7 @@ header {
     background-color: $ligthBlue;
     padding: 5px;
     text-justify: center;
-    width: 250px;
+    width: 200px;
     margin: 10px;
     border-radius: 10px;
     float: left;
@@ -149,16 +154,30 @@ button {
 //FORMULARIO
 .input-add{
     width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 3px;
 }
 
-.add-boards{
-
+.button-add{
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: $skyblue;
 }
 
-.add-lists{
-
+.button-add h4{
+    margin: 0;
+    padding: 0;
 }
 
-.add-cards{
-
+.form-boards, .form-lists, .form-cards {
+    width: 200px;
+    background-color: $cards;
+    padding: 10px;
+    margin: 0; 
+    float: left;
+    border-radius: 10px;
 }
+  
