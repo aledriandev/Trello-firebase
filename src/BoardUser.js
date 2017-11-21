@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 import logo from './whale.png';
 import './App.css';
-import { addCard, addList } from './actions.js'
-import Form from './Form.js'
+import { addCard, addList } from './actions.js';
+import Form from './Form.js';
+import Header from './Header.js';
+import { Redirect } from 'react-router-dom';
 
 class  BoardUser extends React.Component {
   render  () { 
-    const { userActual, team, iTeam, board, iBoard } = this.props
-      console.log('boarduser', userActual);
-      console.log('team', team);
-      console.log('iteam', iTeam);
-      console.log('board', board);
-      console.log('iBoard', iBoard);
+    const { userActual, successLogin, team, iTeam, board, iBoard } = this.props
       return (
         <div>
-          {userActual && <header className='text-center'>
-            <img className='logo-small' src={logo} />
-            <h1>{userActual.name}</h1>
-          </header>
+            {!successLogin && <Redirect to='/'/>}
+          {userActual && <Header userActual={userActual}/>
           }{userActual && board && team && <div className='boards'>
             <h3 className='txt-white'>{team.name}</h3>
             <h4 className='txt-white'>{board.name}</h4>

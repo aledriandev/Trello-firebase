@@ -8,7 +8,7 @@ import User from './User.js'
 import BoardUser from './BoardUser.js'
 import TeamUser from './TeamUser.js'
 import { connect } from 'redux-zero/react';
-import { signOut } from './actions';
+
 
 const Sing = ({ }) => {
   return (
@@ -16,8 +16,6 @@ const Sing = ({ }) => {
       <img className='logo-big' src={logo} />
       <NavLink to="/sing-in" className='sing-in' >Sing In</NavLink>
       <NavLink to="/sing-up" className='sing-in' >Sing Up</NavLink>
-      <NavLink to="/0" className='sing-in' >Board</NavLink>
-      <button onClick={signOut}>Sign Out</button>
     </div>
   );
 }
@@ -43,7 +41,7 @@ const App = ({ users, userActual, successLogin }) => {
                 return (
                   team.boards.map((board, iBoard) => {
                     const path = '/home/' + iTeam + '/' + iBoard;
-                    return <Route exact path={path} render={() => <BoardUser board={board} iBoard={iBoard} team={team} iTeam={iTeam} userActual={userActual} />} />
+                    return <Route exact path={path} render={() => <BoardUser successLogin={successLogin} board={board} iBoard={iBoard} team={team} iTeam={iTeam} userActual={userActual} />} />
                   })
                 )
               })

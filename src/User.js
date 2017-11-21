@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import logo from './whale.png';
 import './App.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { addBoard } from './actions.js';
 import Form from './Form.js';
+import {Col, Row} from 'react-bootstrap';
+import Header from './Header.js'
 
 const User = ({ userActual, successLogin }) => {
   console.log('user---actual',userActual);
   return (
     <div>
-      <header className='text-center'>
-        <img className='logo-small' src={logo} />
-        { userActual && <h1>{userActual.name}</h1>}
-      </header>
+      {!successLogin && <Redirect to='/'/>}
+      <Header userActual={userActual}/>
       <div className='boards'>
         {
           userActual && userActual.teams.map((team, iTeam) => <div key={iTeam} className='team'>

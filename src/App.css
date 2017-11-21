@@ -1,3 +1,8 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+
 body {
   background-color: #606b9e;
   height: 100vh;
@@ -54,7 +59,7 @@ body {
 header {
   height: 50px;
   background-color: #414c7e;
-  padding: 3px;
+  padding: 3px 0;
 }
 
 .logo-small {
@@ -98,6 +103,31 @@ button {
   text-align: center;
   border-radius: 5px;
   color: white;
+}
+
+.name-user {
+  color: #8e98c6;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline;
+  margin-right: 12px;
+}
+
+.sign-out {
+  border: none;
+  border-radius: 5px;
+  background-color: #e65bb0;
+  font-size: 1.2em;
+  padding: 3px;
+  display: inline;
+}
+
+.header-user {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  display: inline;
 }
  
 
