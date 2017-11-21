@@ -16,9 +16,10 @@ class  BoardUser extends React.Component {
           }{userActual && board && team && <div className='boards'>
             <h3 className='txt-white'>{team.name}</h3>
             <h4 className='txt-white'>{board.name}</h4>
-            {board.lists.map((list, iList) => <div key={iList} className='board'>
+            { board.lists &&
+              board.lists.map((list, iList) => <div key={iList} className='board'>
               <h4>{list.name}</h4>
-              {
+              {list.cards &&
                 list.cards.map((card, iCard) => <div key={iCard} className='card'>
                   <p>{card}</p>
                 </div>)
