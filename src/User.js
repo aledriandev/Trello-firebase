@@ -17,7 +17,7 @@ const User = ({ userActual, successLogin }) => {
           userActual && userActual.teams.map((team, iTeam) => <div key={iTeam} className='team'>
             <NavLink to={'/home/' + iTeam}><h3 className='txt-white'>{team.name}</h3></NavLink>
             {team.boards &&
-              team.boards.map((board, iBoard) => <div key={iBoard} className='board'>
+              team.boards.map((board, iBoard) => <div key={iBoard} className='board board-name'>
                 <NavLink to={'/home/' + iTeam + '/' + iBoard}><h4>{board.name}</h4></NavLink>
               </div>)
             }

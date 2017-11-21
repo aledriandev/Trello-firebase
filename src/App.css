@@ -26,7 +26,7 @@ body {
 }
 
 .sing-in {
-  width: 100%;
+  max-width: 200px;
   border: white 3px solid;
   background: transparent;
   border-radius: 0;
@@ -34,10 +34,14 @@ body {
   font-size: 1.5em;
   color: white;
   display: block;
+  margin: 10px 0;
+  position: relative;
+  left: 44%;
 }
 
 .line-block {
   display: block;
+  text-align: center;
 }
 
 .sing-in:hover {
@@ -84,6 +88,10 @@ header {
   max-width: 200px;
   margin: 10px;
   border-radius: 10px;
+}
+
+.board-name {
+  float: left;
 }
 
 ::-webkit-scrollbar {
@@ -177,7 +185,6 @@ button {
   margin: 0;
   float: left;
   border-radius: 10px;
-  float: left;
 }
 
 .form-cards {
