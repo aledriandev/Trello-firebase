@@ -8,7 +8,6 @@ import {Col, Row} from 'react-bootstrap';
 import Header from './Header.js'
 
 const User = ({ userActual, successLogin }) => {
-  console.log('user---actual',userActual);
   return (
     <div>
       {!successLogin && <Redirect to='/'/>}

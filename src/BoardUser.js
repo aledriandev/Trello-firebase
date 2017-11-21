@@ -11,7 +11,7 @@ class  BoardUser extends React.Component {
     const { userActual, successLogin, team, iTeam, board, iBoard } = this.props
       return (
         <div>
-            {!successLogin && <Redirect to='/'/>}
+          {!successLogin && <Redirect to='/'/>}
           {userActual && <Header userActual={userActual}/>
           }{userActual && board && team && <div className='boards'>
             <h3 className='txt-white'>{team.name}</h3>
