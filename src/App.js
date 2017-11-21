@@ -33,7 +33,7 @@ const App = ({ users, userActual, successLogin }) => {
             {
               userActual && userActual.teams.map((team, iTeam) => {
                 const path = '/home/' + iTeam;
-                return <Route exact path={path} render={() => <TeamUser team={team} iTeam={iTeam} userActual={userActual} />} />
+                return <Route exact path={path} render={() => <TeamUser successLogin={successLogin} team={team} iTeam={iTeam} userActual={userActual} />} />
               })
             }
             {
