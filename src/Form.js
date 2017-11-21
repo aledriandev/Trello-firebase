@@ -8,7 +8,8 @@ class  Form   extends Component {
         <div>
             <form className={classN} onSubmit={(e) => {
                 e.preventDefault();
-                add(this.inputRef.value, userActual, iTeam, iBoard, iList);
+                if(this.inputRef.value !== '')
+                    add(this.inputRef.value, userActual, iTeam, iBoard, iList);
                 this.inputRef.value = ''; 
             }}>
                 <input className='input-add' placeholder={placeholder} type="text" ref={e => this.inputRef = e} />

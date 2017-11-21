@@ -7,7 +7,7 @@ $darkBlue: #606b9e;
 $darkBlue2: #414c7e;
 $ligthBlue: #8e98c6;
 $cards: rgb(80, 29, 175);
-$skyblue: #76aef7;
+$skyblue: #46bdf5;
 
 *{
     margin: 0 auto;
@@ -90,11 +90,16 @@ header {
     background-color: $ligthBlue;
     padding: 5px;
     text-justify: center;
-    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
     margin: 10px;
     border-radius: 10px;
-    float: left;
 }
+
+::-webkit-scrollbar {width:12px}
+::-webkit-scrollbar-thumb {background: white;}
+::-webkit-scrollbar-track {background: rgb(245, 194, 188)}
+
 
 button {
     border: none;
@@ -102,10 +107,16 @@ button {
 
 .card {
   background-color: white;
-  padding: 2px;
+  padding: 10px;
   margin: 5px 0;
   text-align: center;
   border-radius: 5px;
+}
+
+.card p{
+    margin: 0;
+    padding: 0;
+    font-weight: 1.4em;
 }
 
 .card-add {
@@ -129,7 +140,7 @@ button {
 .sign-out{
     border: none;
     border-radius: 5px;
-    background-color: #e65bb0;
+    background-color: rgb(253, 166, 156);
     font-size: 1.2em;
     padding: 3px;
     display: inline
@@ -141,15 +152,6 @@ button {
     top: 1%;
     display: inline
 }
-  
-//   .boards{
-//     white-space: nowrap;   
-//     overflow-y: hidden;
-//     padding-bottom: 10px;
-//     padding-right: 56px;
-//     position: absolute;
-//     top: 0;
-//   }
 
 //FORMULARIO
 .input-add{
@@ -172,12 +174,32 @@ button {
     padding: 0;
 }
 
-.form-boards, .form-lists, .form-cards {
-    width: 200px;
+.form-boards, .form-lists {
+    min-width: 200px;
     background-color: $cards;
+    padding: 10px;
+    margin: 0; 
+    float: left;
+    border-radius: 10px;
+    float: left
+}
+
+.form-cards {
+    width: 100%;
     padding: 10px;
     margin: 0; 
     float: left;
     border-radius: 10px;
 }
   
+.form-cards.button-add{
+    background-color: $skyblue;
+}
+
+.board-actual{
+    overflow:auto;
+    width: 100vw;
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+}

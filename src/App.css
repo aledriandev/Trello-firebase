@@ -80,10 +80,22 @@ header {
   background-color: #8e98c6;
   padding: 5px;
   text-justify: center;
-  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
   margin: 10px;
   border-radius: 10px;
-  float: left;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5c2bc;
 }
 
 button {
@@ -92,10 +104,16 @@ button {
 
 .card {
   background-color: white;
-  padding: 2px;
+  padding: 10px;
   margin: 5px 0;
   text-align: center;
   border-radius: 5px;
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+  font-weight: 1.4em;
 }
 
 .card-add {
@@ -119,7 +137,7 @@ button {
 .sign-out {
   border: none;
   border-radius: 5px;
-  background-color: #e65bb0;
+  background-color: #fda69c;
   font-size: 1.2em;
   padding: 3px;
   display: inline;
@@ -144,7 +162,7 @@ button {
   width: 50%;
   padding: 5px;
   border-radius: 5px;
-  background-color: #76aef7;
+  background-color: #46bdf5;
 }
 
 .button-add h4 {
@@ -152,13 +170,34 @@ button {
   padding: 0;
 }
 
-.form-boards, .form-lists, .form-cards {
-  width: 200px;
+.form-boards, .form-lists {
+  min-width: 200px;
   background-color: #501daf;
   padding: 10px;
   margin: 0;
   float: left;
   border-radius: 10px;
+  float: left;
+}
+
+.form-cards {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  float: left;
+  border-radius: 10px;
+}
+
+.form-cards.button-add {
+  background-color: #46bdf5;
+}
+
+.board-actual {
+  overflow: auto;
+  width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
  
 

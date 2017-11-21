@@ -12,12 +12,12 @@ class  BoardUser extends React.Component {
       return (
         <div>
           {!successLogin && <Redirect to='/'/>}
-          {userActual && <Header userActual={userActual}/>
-          }{userActual && board && team && <div className='boards'>
-            <h3 className='txt-white'>{team.name}</h3>
-            <h4 className='txt-white'>{board.name}</h4>
+          <Header userActual={userActual}/>
+          <h3 className='txt-white'>{team.name}</h3>
+          <h4 className='txt-white'>{board.name}</h4>
+          {userActual && board && team && <div className='boards board-actual'>
             { board.lists &&
-              board.lists.map((list, iList) => <div key={iList} className='board'>
+              board.lists.map((list, iList) => <div key={iList} className='board list'>
               <h4>{list.name}</h4>
               {list.cards &&
                 list.cards.map((card, iCard) => <div key={iCard} className='card'>
