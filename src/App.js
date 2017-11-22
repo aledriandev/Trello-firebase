@@ -34,7 +34,7 @@ const App = ({ users, userActual, successLogin }) => {
             {
               userActual && userActual.teams.map((team, iTeam) => {
                 const path = '/home/' + iTeam;
-                return <Route exact path={path} render={() => <TeamUser successLogin={successLogin} team={team} iTeam={iTeam} userActual={userActual} />} />
+                return <Route key={iTeam} exact path={path} render={() => <TeamUser successLogin={successLogin} team={team} iTeam={iTeam} userActual={userActual} />} />
               })
             }
             {
@@ -43,7 +43,7 @@ const App = ({ users, userActual, successLogin }) => {
                   return (
                   team.boards.map((board, iBoard) => {
                     const path = '/home/' + iTeam + '/' + iBoard;
-                        return <Route exact path={path} render={() => <BoardUser successLogin={successLogin} board={board} iBoard={iBoard} team={team} iTeam={iTeam} userActual={userActual} />} />
+                        return <Route key={iTeam} exact path={path} render={() => <BoardUser successLogin={successLogin} board={board} iBoard={iBoard} team={team} iTeam={iTeam} userActual={userActual} />} />
                       })
                     )
                 }
