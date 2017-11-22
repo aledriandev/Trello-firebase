@@ -4,16 +4,14 @@ import './App.css';
 import { NavLink, Redirect } from 'react-router-dom';
 import { addBoard } from './actions.js';
 import Form from './Form.js';
-import {Col, Row} from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import Header from './Header.js'
 
 const User = ({ userActual, successLogin }) => {
-  console.log("userActual de Usserr",userActual.teams);
-  console.log("successLogin",successLogin);
   return (
     <div>
-      {!successLogin && <Redirect to='/'/>}
-      <Header userActual={userActual}/>
+      {!successLogin && <Redirect to='/' />}
+      <Header userActual={userActual} />
       <div className='boards'>
         {
           userActual && userActual.teams.map((team, iTeam) => <div key={iTeam} className='team'>

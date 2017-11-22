@@ -1,29 +1,4 @@
 import createStore from 'redux-zero';
-const usersBase = [
-  {
-    name: '',
-    last: '',
-    email: '',
-    pasword: '',
-    teams: [
-      {
-        name: '',
-        members: '',
-        boards: [
-          {
-            name: '',
-            lists: [
-              {
-                name: '',
-                cards: []
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-]
 
 const users = [
   {
@@ -119,7 +94,6 @@ const users = [
 const initialState = {
   userActual: '',
   successLogin : false,
-  users: users,
 }
 
 const store = createStore(initialState);

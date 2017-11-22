@@ -13,7 +13,7 @@ import { connect } from 'redux-zero/react';
 const Sign = ({ successLogin }) => {
   return (
     <div className='text-center line-block'>
-      {successLogin && <Redirect to='/home'/>}
+      {successLogin && <Redirect to='/home' />}
       <img className='logo-big' src={logo} />
       <NavLink to="/sing-in" className='sing-in' >Sing In</NavLink>
       <NavLink to="/sing-up" className='sing-in' >Sing Up</NavLink>
@@ -27,7 +27,7 @@ const App = ({ users, userActual, successLogin }) => {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route exact path='/' render={() => <Sign successLogin={successLogin} />}  />
+            <Route exact path='/' render={() => <Sign successLogin={successLogin} />} />
             <Route exact path="/sing-in" render={() => <SingIn successLogin={successLogin} />} />
             <Route exact path="/sing-up" render={() => <SingUp successLogin={successLogin} />} />
             <Route exact path="/home" render={() => <User userActual={userActual} successLogin={successLogin} />} />
@@ -39,13 +39,13 @@ const App = ({ users, userActual, successLogin }) => {
             }
             {
               userActual && userActual.teams.map((team, iTeam) => {
-                if ( team.boards ){
+                if (team.boards) {
                   return (
-                  team.boards.map((board, iBoard) => {
-                    const path = '/home/' + iTeam + '/' + iBoard;
-                        return <Route key={iTeam} exact path={path} render={() => <BoardUser successLogin={successLogin} board={board} iBoard={iBoard} team={team} iTeam={iTeam} userActual={userActual} />} />
-                      })
-                    )
+                    team.boards.map((board, iBoard) => {
+                      const path = '/home/' + iTeam + '/' + iBoard;
+                      return <Route key={iTeam} exact path={path} render={() => <BoardUser successLogin={successLogin} board={board} iBoard={iBoard} team={team} iTeam={iTeam} userActual={userActual} />} />
+                    })
+                  )
                 }
               })
             }

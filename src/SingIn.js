@@ -20,13 +20,13 @@ const SingIn = ({ successLogin }) => {
       }>
         <FormGroup controlId="formHorizontalEmail">
           <Col smOffset={4} sm={4} mdOffset={3} md={6} xsOffset={2} xs={8}>
-            <FormControl className='input-data' type="email" placeholder="Email" inputRef={e=>this.emailInputRef=e}/>
+            <FormControl className='input-data' type="email" placeholder="Email" inputRef={e => this.emailInputRef = e} />
           </Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalPassword">
           <Col smOffset={4} sm={4} mdOffset={3} md={6} xsOffset={2} xs={8}>
-            <FormControl className='input-data' type="password" placeholder="Password" inputRef={e=>this.passwordInputRef=e}/>
+            <FormControl className='input-data' type="password" placeholder="Password" inputRef={e => this.passwordInputRef = e} />
           </Col>
         </FormGroup>
 
